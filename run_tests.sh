@@ -15,7 +15,8 @@ for test_file in "$TEST_DIR"/*.c; do
     echo -e "${PURPLE}--------- Test $test_number ---------${NC}"
     ((test_number++))
 
-    gcc -Wall -Wextra -Werror \
+    gcc \
+      -Wall -Wextra -Werror \
       src/printf.c \
       tests/unity/unity.c \
       tests/capture_output.c \

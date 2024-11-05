@@ -12,6 +12,7 @@ void test_ft_printf_mixed_format(void) {
     expected_len = capture_output(expected, BUFFER_SIZE, printf, "%c%s%c", 'A', "BC", 'D');
     actual_len = capture_output(actual, BUFFER_SIZE, ft_printf, "%c%s%c", 'A', "BC", 'D');
 
+	printf("ft_printf(\"%%c%%s%%c\", 'A', \"BC\", 'D')\n");
     printf("Expected: '%s' (len: %d)\n", expected, expected_len);
     printf("Actual  : '%s' (len: %d)\n", actual, actual_len);
 
