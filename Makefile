@@ -2,7 +2,7 @@
 NAME = libftprintf.a
 
 #---------------- Variables ----------------#
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror -O2
 DEPFLAGS = -MMD -MP
 INCLUDES = -I./include

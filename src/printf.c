@@ -17,7 +17,6 @@ int	process_format(const char *fmt, va_list ap)
 	int	count;
 
 	count = 0;
-	fmt++;
 	if (*fmt == 'c')
 		count += ft_putchar(va_arg(ap, int));
 	else if (*fmt == 's')
@@ -27,15 +26,14 @@ int	process_format(const char *fmt, va_list ap)
 	else if (*fmt == 'd' || *fmt == 'i')
 		count += ft_putnbr(va_arg(ap, int));
 	else if (*fmt == 'u')
-		count += ft_putunbr(va_arg(ap, int));
+		count += ft_putunbr(va_arg(ap, unsigned int));
 	else if (*fmt == 'x')
 		count += ft_puthex(va_arg(ap, unsigned int));
 	else if (*fmt == 'X')
 		count += ft_putupperhex(va_arg(ap, unsigned int));
 	else if (*fmt == '%')
 		count += ft_putchar('%');
-	else
-		count += ft_putchar(*fmt);
+	fmt++;
 	return (count);
 }
 
@@ -49,10 +47,15 @@ int	ft_printf(const char *fmt, ...)
 	while (*fmt)
 	{
 		if (*fmt == '%')
+		{
+			fmt++;
 			count += process_format(fmt, ap);
+		}
 		else
+		{
 			count += ft_putchar(*fmt);
-		fmt++;
+			fmt++;
+		}
 	}
 	va_end(ap);
 	return (count);

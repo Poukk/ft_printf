@@ -6,7 +6,7 @@
 /*   By: alexanfe <alexanfe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:37:15 by alexanfe          #+#    #+#             */
-/*   Updated: 2024/11/07 14:37:31 by alexanfe         ###   ########.fr       */
+/*   Updated: 2024/11/07 14:37:15 by alexanfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_putunbr(unsigned int nbr)
 
 	count = 0;
 	if (nbr >= 10)
-		count += ft_putnbr(nbr / 10);
+		count += ft_putunbr(nbr / 10);
 	count += ft_putchar((nbr % 10) + '0');
 	return (count);
 }
