@@ -52,10 +52,8 @@ int	ft_printf(const char *fmt, ...)
 			count += process_format(fmt, ap);
 		}
 		else
-		{
 			count += ft_putchar(*fmt);
-			fmt++;
-		}
+		fmt++;
 	}
 	va_end(ap);
 	return (count);
