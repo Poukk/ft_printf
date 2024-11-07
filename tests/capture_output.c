@@ -24,7 +24,7 @@ int capture_output(char *buffer, size_t size, int (*print_func)(const char *, ..
         result = vprintf(format, args);
     else
     {
-        result = vft_printf(format, args);
+        result = ft_printf(format, args);
 	va_end(args);
     }
 

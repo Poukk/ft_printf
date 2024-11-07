@@ -20,7 +20,7 @@ for test_file in "$TEST_DIR"/*.c; do
     ((test_number++))
 
     gcc -Wall -Wextra -Werror \
-      src/printf.c \
+      src/*.c \
       tests/unity/unity.c \
       tests/capture_output.c \
       "$test_file" \

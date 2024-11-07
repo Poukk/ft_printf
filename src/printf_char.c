@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printf_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexanfe <alexanfe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 18:43:19 by alexanfe          #+#    #+#             */
-/*   Updated: 2024/11/07 14:40:23 by alexanfe         ###   ########.fr       */
+/*   Created: 2024/11/07 14:39:09 by alexanfe          #+#    #+#             */
+/*   Updated: 2024/11/07 14:39:39 by alexanfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../include/ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
-int	vft_printf(const char *fmt, va_list ap);
-int	ft_printf(const char *fmt, ...);
-int	ft_puthex(unsigned long num);
-int ft_putupperhex(unsigned long num);
-int	ft_putptr(unsigned long ptr);
-int	ft_putnbr(int nbr);
-int	ft_putunbr(unsigned int nbr);
-int	ft_putchar(char c);
-int	ft_putstr(char *str);
-#endif
+int	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (ft_putstr("(null)"));
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
+}
