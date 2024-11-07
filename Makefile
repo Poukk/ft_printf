@@ -13,8 +13,8 @@ SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 DEPS = $(OBJS:.o=.d)
 
-GREEN = \033[0;32m
-RESET = \033[0m
+GREEN = $$(tput setaf 2)
+RESET = $$(tput sgr0)
 
 #----------------- Targets ----------------#
 all: $(NAME)

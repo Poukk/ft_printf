@@ -23,6 +23,8 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (ft_putstr("(null)"));
 	while (str[i])
 	{
 		write(1, &str[i], 1);
@@ -40,6 +42,19 @@ int	ft_puthex(unsigned long num)
 	hex = "0123456789abcdef";
 	if (num >= 16)
 		count += ft_puthex(num / 16);
+	count += write(1, &hex[num % 16], 1);
+	return (count);
+}
+
+int ft_putupperhex(unsigned long num)
+{
+	int		count;
+	char	*hex;
+
+	count = 0;
+	hex = "0123456789ABCDEF";
+	if (num >= 16)
+		count += ft_putupperhex(num / 16);
 	count += write(1, &hex[num % 16], 1);
 	return (count);
 }
@@ -105,6 +120,14 @@ int	vft_printf(const char *fmt, va_list ap)
 				count += ft_putnbr(va_arg(ap, int));
 			else if (*fmt == 'u')
 				count += ft_putunbr(va_arg(ap, int));
+			else if (*fmt == 'x')
+				count += ft_puthex(va_arg(ap, unsigned int));
+			else if (*fmt == 'X')
+				count += ft_putupperhex(va_arg(ap, unsigned int));
+			else if (*fmt == '%')
+				count += ft_putchar('%');
+			else
+				count += ft_putchar(*fmt);
 		}
 		else
 		{

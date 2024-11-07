@@ -23,8 +23,10 @@ int capture_output(char *buffer, size_t size, int (*print_func)(const char *, ..
     if (print_func == printf)
         result = vprintf(format, args);
     else
+    {
         result = vft_printf(format, args);
 	va_end(args);
+    }
 
     fflush(stdout);
     if (dup2(backup_stdout, STDOUT_FILENO) == -1) {
