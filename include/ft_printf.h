@@ -19,7 +19,7 @@
 int	vft_printf(const char *fmt, va_list ap);
 int	ft_printf(const char *fmt, ...);
 int	ft_puthex(unsigned long num);
-int ft_putupperhex(unsigned long num);
+int	ft_putupperhex(unsigned long num);
 int	ft_putptr(unsigned long ptr);
 int	ft_putnbr(int nbr);
 int	ft_putunbr(unsigned int nbr);
